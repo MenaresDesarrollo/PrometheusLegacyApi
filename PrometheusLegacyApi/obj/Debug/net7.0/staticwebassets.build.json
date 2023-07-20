@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "oKfF833WXCO8LKcKJ2SXjeb9dISzc0hXZoYK5NEZB4A=",
+  "Source": "PrometheusLegacyApi",
+  "BasePath": "_content/PrometheusLegacyApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
