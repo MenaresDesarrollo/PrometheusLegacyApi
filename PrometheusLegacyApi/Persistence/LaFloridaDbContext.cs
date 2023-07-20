@@ -5,13 +5,13 @@ using PrometheusLegacyApi.Entities.LaFlorida;
 
 namespace PrometheusLegacyApi.Persistence;
 
-public partial class LaFloridaContext : DbContext
+public partial class LaFloridaDbContext : DbContext
 {
-    public LaFloridaContext()
+    public LaFloridaDbContext()
     {
     }
 
-    public LaFloridaContext(DbContextOptions<LaFloridaContext> options)
+    public LaFloridaDbContext(DbContextOptions<LaFloridaDbContext> options)
         : base(options)
     {
     }
@@ -241,10 +241,6 @@ public partial class LaFloridaContext : DbContext
     public virtual DbSet<WorklistLaboratorio> WorklistLaboratorios { get; set; }
 
     public virtual DbSet<WorklistSinAgendum> WorklistSinAgenda { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=10.10.1.121;port=3306;database=darsalud_florida;user=developer;password=123456..;charset=utf8", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.6.45-mysql"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -246,10 +246,6 @@ public partial class AstorgaDbContext : DbContext
 
     public virtual DbSet<WorklistSinAgendum> WorklistSinAgenda { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=10.10.1.248;port=3306;database=labo_center_astorga;user=developer;password=123456..;charset=utf8", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.6.45-mysql"));
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
