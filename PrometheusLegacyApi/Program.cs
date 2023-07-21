@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using PrometheusLegacyApi.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 31));
+var serverVersion = new MySqlServerVersion(new Version(5, 6, 45));
 
 // Add services to the container.
 
@@ -12,31 +13,31 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AstorgaDbContext>(
             dbContextOptions => dbContextOptions
-                .UseMySql("AstorgaConnection", serverVersion));
+                .UseMySql(builder.Configuration.GetConnectionString("AstorgaConnection"), serverVersion));
 
 builder.Services.AddDbContext<InfanteDbContext>(
             dbContextOptions => dbContextOptions
-                .UseMySql("InfanteConnection", serverVersion));
+                .UseMySql(builder.Configuration.GetConnectionString("InfanteConnection"), serverVersion));
 
 builder.Services.AddDbContext<LaFloridaDbContext>(
             dbContextOptions => dbContextOptions
-                .UseMySql("LafloridaConnection", serverVersion));
+                .UseMySql(builder.Configuration.GetConnectionString("LafloridaConnection"), serverVersion));
 
 builder.Services.AddDbContext<MaciverDbContext>(
             dbContextOptions => dbContextOptions
-                .UseMySql("MaciverConnection", serverVersion));
+                .UseMySql(builder.Configuration.GetConnectionString("MaciverConnection"), serverVersion));
 
 builder.Services.AddDbContext<SanAntonioDbContext>(
             dbContextOptions => dbContextOptions
-                .UseMySql("SanAntonioConnection", serverVersion));
+                .UseMySql(builder.Configuration.GetConnectionString("SanAntonioConnection"), serverVersion));
 
 builder.Services.AddDbContext<SanAntonioDosDbContext>(
             dbContextOptions => dbContextOptions
-                .UseMySql("SanAntonio2Connection", serverVersion));
+                .UseMySql(builder.Configuration.GetConnectionString("SanAntonio2Connection"), serverVersion));
 
 builder.Services.AddDbContext<SantaRosaDbContext>(
             dbContextOptions => dbContextOptions
-                .UseMySql("SantaRosaConnection", serverVersion));
+                .UseMySql(builder.Configuration.GetConnectionString("SantaRosaConnection"), serverVersion));
 
 var app = builder.Build();
 
